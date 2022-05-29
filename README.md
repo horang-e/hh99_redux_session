@@ -24,7 +24,12 @@
   - redux-actions, redux-toolkit, immer라는 것들은 무엇인가요?
   - redux devtools 을 잘쓰자!
 
-### 4. 그 밖의 내용
+### 4. react-redux
+ - **react-redux : react와 redux를 연결시켜주는 라이브러리**
+ - useDispatch : action을 일으키는 훅
+ - useSelector : redux store의 state들을 가져오는 훅 
+
+### 5. 그 밖의 내용
  - Project Directory
    - `src/components` : 재사용되는 components가 있는 폴더
    - src/elem : component보다 단위가 작은 요소 component가 있는 폴더 
