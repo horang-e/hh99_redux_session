@@ -1,13 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Text from "../elem/Text";
 import flex from "../lib/flex";
 
 const Navigation = () => {
+  const name = useSelector((state) => state.user.name);
   return (
     <StContaienr>
       <Text variant="head01" color="blue">
-        안녕하세요, 예상기님?
+        안녕하세요, {name}님?
       </Text>
       <Text>메뉴1</Text>
       <Text>메뉴2</Text>

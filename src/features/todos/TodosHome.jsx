@@ -2,23 +2,13 @@ import React, { useState } from "react";
 import { Button, Stack, Text } from "../../elem";
 import Card from "./Card";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { addTodo, deleteTodo } from "../../modules/todos";
 
 const TodosHome = () => {
+  const dispatch = useDispatch();
   // Todos local state
-  const [todos, setTodo] = useState([
-    {
-      userId: 1,
-      id: 1,
-      title: "delectus aut autem",
-      completed: false,
-    },
-    {
-      userId: 1,
-      id: 2,
-      title: "quis ut nam facilis et officia qui",
-      completed: false,
-    },
-  ]);
+  const todos = useSelector((state) => state.todos.todos);
 
   // 새로 등록할 Todo state
   const [newTodo, setNewTodo] = useState({
@@ -39,34 +29,21 @@ const TodosHome = () => {
     });
   };
 
-  //
+  // 삭제 버튼 핸들러
   const onClickDeleteButtonHandler = (id) => {
-    console.log(id);
-    const remainTodos = todos.filter((todo) => {
-      return todo.id !== id;
-    });
+    dispatch(deleteTodo(id));
+  };
 
-    console.log(remainTodos);
-    setTodo(remainTodos);
+  // 새로운 Todo 등록 핸들러
+  const onSubmitNewTodoFormHandler = (e) => {
+    e.preventDefault();
+    dispatch(addTodo(newTodo));
   };
 
   // JSX
   return (
     <StContainer>
-      <form
-        onSubmit={(e) => {
-          // 새로고침 방지
-          e.preventDefault();
-
-          setTodo([...todos, newTodo]);
-          setNewTodo({
-            id: 0,
-            userId: 0,
-            title: "",
-            completed: false,
-          });
-        }}
-      >
+      <form onSubmit={onSubmitNewTodoFormHandler}>
         <Stack mg="30px 0" gap="10px" align="center">
           <Text variant="head01" color="blue">
             제목

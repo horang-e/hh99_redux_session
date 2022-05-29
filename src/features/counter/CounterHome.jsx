@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Text } from "../../components";
 import { Button, Stack } from "../../elem";
+import { minus, plus } from "../../modules/coutner";
 
 const CounterHome = () => {
+  const dispatch = useDispatch();
   // local state
-  const [number, setNumber] = useState(0);
+  const number = useSelector((state) => state.counter);
 
   // handler
   const onClickAddButtonHandler = () => {
-    setNumber(number + 1);
+    dispatch(plus());
   };
 
   const onClickMinusButtonHandler = () => {
-    setNumber(number - 1);
+    dispatch(minus());
   };
 
   return (

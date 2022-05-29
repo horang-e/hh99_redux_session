@@ -1,10 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Stack from "../elem/Stack";
 import Text from "../elem/Text";
 import flex from "../lib/flex";
 
 export default function Header() {
+  const name = useSelector((state) => state.user.name);
+  console.log(name);
   return (
     <StHeader>
       <Stack justify="between" align="center">
@@ -12,7 +15,7 @@ export default function Header() {
           리덕스 기초 배우기
         </Text>
         <Text variant="head02" color="green">
-          예상기 님!
+          {name} 님!
         </Text>
       </Stack>
     </StHeader>
