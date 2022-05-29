@@ -17,8 +17,8 @@
   - 모든 시작은 `dispatch` 부터
     - `const dispatch = useDispatch()`
   - redux-Thunk는 왜 써야 하나?
-    - 관심사 분리
-    - 핸들러를 에서 서버 정보를 가져오면 되지 않나요?
+    - 로직 분리 및 server state 관리
+      - data, loading, error 
   - redux-actions, redux-toolkit, immer라는 것들은 무엇인가요?
   - redux devtools 을 잘쓰자!
 
