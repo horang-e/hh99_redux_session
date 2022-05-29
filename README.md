@@ -1,5 +1,7 @@
 ### 1. Component, Props, State 잘 숙지하고 있나요?
+ -  Component, Props, State를 자유자재로 생성하고, props를 통해 state를 주고 받는 것을 100% 이해하고 있어야 합니다.
 ### 2. 언제 useState가 불편해지나?
+ - 같은 state를 공유하는 component의 깊이가 깊어지고 복잡해질 수록 불편해진다. state를 사용하고자 하는 component까지 props drilling을 해야하기 때문
 ### 3. 리덕스 쉽게 쓰기!
   - 무조건 redux를 써야만 하나요? useState는 이제 안쓰나요?
     - local state 와 global state
