@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+### 1. Component, Props, State 잘 숙지하고 있나요?
+### 2. 언제 useState가 불편해지나?
+### 3. 리덕스 쉽게 쓰기!
+  - 무조건 redux를 써야만 하나요? useState는 이제 안쓰나요?
+    - local state 와 global state
+  - 설정코드는 `복붙`하자
+    - 우리는 리덕스를 잘 **사용**해야하는 것이지 리덕스를 **구현**하는게 아닙니다!
+  - 리덕스의 구성요소 쉽게 기억하기
+    - 구성요소의 데이터 형태로 기억하자
+      - actions type : `object` (`type` key를 겪들인 **객체**)
+      - action creatore : `function` (actions type을 반환하는 **함수**)
+      - reducer : `function` (action type 별로 새로운 state를 반환하는 분기문이 있는 **함수**)
+      - initial state : `any` (개발자의 마음대로 아무형태나 올 수 있음)
+      - thunk function : `function` (함수를 리턴하는 함수)
+        - `const somethingThunk = (args) => (dispatch, getState) => {}`
+  - intialState는 어떻게 만들어야 하나? (undefined 피하기)
+  - 모든 시작은 `dispatch` 부터
+    - `const dispatch = useDispatch()`
+  - redux-Thunk는 왜 써야 하나?
+    - 관심사 분리
+    - 핸들러를 에서 서버 정보를 가져오면 되지 않나요?
+  - redux-actions, redux-toolkit, immer라는 것들은 무엇인가요?
+  - redux devtools 을 잘쓰자!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 4. 그 밖의 내용
+ - Project Directory
+   - `src/components` : 재사용되는 components가 있는 폴더
+   - src/elem : component보다 단위가 작은 요소 component가 있는 폴더 
+   - src/feature : 재사용되긴 하지만 특정 기능에서만 사용하는 component들이 있는 폴더
+   - src/lib : 재사용되는 유틸 함수들이 모여있는 폴더
+   - src/modules : 리덕스 모듈이 모여 있는 폴더
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### More
+ - react-qeury VS redux 
