@@ -1,14 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Stack, Text } from "../../elem";
 import Card from "./Card";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, deleteTodo } from "../../modules/todos";
+import {
+  addTodo,
+  cleanTodos,
+  deleteTodo,
+  __getTodos,
+} from "../../modules/todos";
 
 const TodosHome = () => {
   const dispatch = useDispatch();
   // Todos local state
-  const todos = useSelector((state) => state.todos.todos);
+  const { todos, error, loading } = useSelector((state) => state.todos);
+
+  useEffect(() => {
+    // 화면이 mount 됐을 때 disaptch 실행
+    dispatch(__getTodos());
+
+    return () => {
+      // 화면이 unmount 됐을 때 redux store을 비움
+      dispatch(cleanTodos());
+    };
+  }, [dispatch]);
 
   // 새로 등록할 Todo state
   const [newTodo, setNewTodo] = useState({
@@ -41,6 +56,24 @@ const TodosHome = () => {
   };
 
   // JSX
+  if (loading)
+    return (
+      <Stack justify="center">
+        <Text variant="head01" color="blue">
+          로딩 중....!
+        </Text>
+      </Stack>
+    );
+
+  if (error)
+    return (
+      <Stack justify="center">
+        <Text variant="head01" color="red">
+          에러가 발생했습니다.
+        </Text>
+      </Stack>
+    );
+
   return (
     <StContainer>
       <form onSubmit={onSubmitNewTodoFormHandler}>
